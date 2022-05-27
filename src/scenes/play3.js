@@ -8,20 +8,19 @@ var gameOver;
 var scoreText;
 
 // Clase Play, donde se crean todos los sprites, el escenario del juego y se inicializa y actualiza toda la logica del juego.
-export class Play extends Phaser.Scene {
+export class Play3 extends Phaser.Scene {
   constructor() {
     // Se asigna una key para despues poder llamar a la escena
-    super("Play");
+    super("Play3");
   }
 
   preload() {
-    this.load.tilemapTiledJSON("map", "public/assets/tilemaps/map.json");
-    this.load.image("tilesBelow", "public/assets/images/sky_atlas.png");
-    this.load.image("tilesPlatform", "public/assets/images/platform_atlas.png");
+    this.load.tilemapTiledJSON("map3", "public/assets/tilemaps/map3.json");
+   
   }
 
   create() {
-    const map = this.make.tilemap({ key: "map" });
+    const map = this.make.tilemap({ key: "map3" });
 
     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
     // Phaser's cache (i.e. the name you used in preload)
@@ -149,7 +148,7 @@ export class Play extends Phaser.Scene {
     scoreText.setText("Score: " + score);
 
     if (stars.countActive(true) === 0) {
-      this.scene.start("Play2")
+      this.scene.start("MainMenu")
     }
   }
 
